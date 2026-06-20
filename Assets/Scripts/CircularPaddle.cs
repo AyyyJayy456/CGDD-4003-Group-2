@@ -6,25 +6,24 @@ public class CircularPaddle : MonoBehaviour
     public Transform centerPoint;
     public float speed = 150f;
     private float currentAngle = 90f;
+    public HitCounter hitCounter;
 
     void Update()
     {
         float input = 0f;
 
-        // 2. Read the keyboard directly using the new Input System
         if (Keyboard.current != null)
         {
             if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
             {
-                input = -1f;
+                input = -1.5f;
             }
             else if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
             {
-                input = 1f;
+                input = 1.5f;
             }
         }
 
-        // The rest of your circular movement logic remains exactly the same
         if (input != 0)
         {
             currentAngle -= input * speed * Time.deltaTime;
@@ -38,6 +37,14 @@ public class CircularPaddle : MonoBehaviour
             Vector3 directionToCenter = centerPoint.position - transform.position;
             float targetRotation = Mathf.Atan2(directionToCenter.y, directionToCenter.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, targetRotation + 90f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            hitCounter.AddHit();
         }
     }
 }
