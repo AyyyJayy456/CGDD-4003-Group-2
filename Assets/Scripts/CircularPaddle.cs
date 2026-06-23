@@ -5,7 +5,7 @@ public class CircularPaddle : MonoBehaviour
 {
     public Transform centerPoint;
     public float speed = 150f;
-    private float currentAngle = 90f;
+    public float currentAngle = 90f;
     public HitCounter hitCounter;
 
     void Update()

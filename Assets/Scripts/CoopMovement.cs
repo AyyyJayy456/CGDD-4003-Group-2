@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BallMovement : MonoBehaviour
+public class CoopMovement : MonoBehaviour
 {
     public float initialSpeed = 5f;
     private Rigidbody2D rb;
@@ -28,7 +28,7 @@ public class BallMovement : MonoBehaviour
         {
             GameData.finalScore = hitCounter.getHits();
 
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Results_Scene");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Co-op_Scene");
         }
     }
 }

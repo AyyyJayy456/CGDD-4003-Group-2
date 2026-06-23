@@ -9,6 +9,14 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Circular_Pong");
     }
 
+    public void Versus() 
+    {
+        SceneManager.LoadScene("2Player_Pong");
+    }
+    public void coOp() 
+    {
+        SceneManager.LoadScene("2Player_CoOp");
+    }
     public void RetryGame()
     {
         SceneManager.LoadScene("Circular_Pong");
@@ -24,6 +32,20 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Results_Scene");
     }
 
+    public void VictoryScreen() 
+    {
+        SceneManager.LoadScene("Victory_Scene");
+    }
+
+    public void ReplayGame() 
+    {
+        SceneManager.LoadScene("2Player_Pong");
+    }
+
+    public void RetryCoOp() 
+    {
+        SceneManager.LoadScene("2Player_CoOp");
+    }
     public void Quit()
     {
            Application.Quit();
