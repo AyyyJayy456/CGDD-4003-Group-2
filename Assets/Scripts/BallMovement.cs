@@ -22,6 +22,17 @@ public class BallMovement : MonoBehaviour
     }
     public float maxRadius = 6f;
 
+    public AudioSource audioSource;
+    public AudioClip hitSound;
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (audioSource != null && hitSound != null)
+        {
+            audioSource.PlayOneShot(hitSound);
+        }
+    }
+
     void Update()
     {
         if (Vector3.Distance(transform.position, Vector3.zero) > maxRadius)
