@@ -2,18 +2,24 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Score2
+  - Ball
+  - Score1
+  - Player1
+  - Player2
+  - Border
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Border
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ball
+  - Player1
+  - Player2
   - 
   - 
   - 
@@ -41,3 +47,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Border
+    uniqueID: 3658372657
+    locked: 0
+  m_RenderingLayers:
+  - Default

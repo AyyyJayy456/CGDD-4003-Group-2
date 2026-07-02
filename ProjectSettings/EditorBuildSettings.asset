@@ -9,13 +9,25 @@ EditorBuildSettings:
     path: Assets/Scenes/Circle_Pong.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Main_Menu.unity
+    path: Assets/Scenes/Main_Menu.unity
     guid: ba2fc726982c79b47be13ccdcd981824
   - enabled: 1
-    path: Assets/Circular_Pong.unity
+    path: Assets/Scenes/Circular_Pong.unity
     guid: a4d709f60d1915b4abc66047632a276f
   - enabled: 1
-    path: Assets/Results_Scene.unity
+    path: Assets/Scenes/2Player_Pong.unity
+    guid: f2c6505693dee6747a8375dfb31d88b7
+  - enabled: 1
+    path: Assets/Scenes/2Player_CoOp.unity
+    guid: 474dd845f6760e74b9745e3f9a441341
+  - enabled: 1
+    path: Assets/Scenes/Co-op_Scene.unity
+    guid: e225bf2fdcb32e645809c21248de443e
+  - enabled: 1
+    path: Assets/Scenes/Victory_Screen.unity
+    guid: 8e4315550617ef04a882e0ce3e3fdbac
+  - enabled: 1
+    path: Assets/Scenes/Results_Scene.unity
     guid: 9a17213e47b820a44bbece8f88c76e04
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
