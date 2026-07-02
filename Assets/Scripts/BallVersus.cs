@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class BallVersus : MonoBehaviour
@@ -36,23 +35,22 @@ public class BallVersus : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip hitSound;
-
+   
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (audioSource != null && hitSound != null)
+        {
+            audioSource.PlayOneShot(hitSound);
+        }
         if (collision.gameObject.CompareTag("Score1"))
         {
             versusCounter.Score1();
             LaunchBall();
         }
-        else if (collision.gameObject.CompareTag("Score2")) 
+        if (collision.gameObject.CompareTag("Score2")) 
         {
             versusCounter.Score2();
             LaunchBall();
-        }
-
-        if (audioSource != null && hitSound != null)
-        {
-            audioSource.PlayOneShot(hitSound);
         }
     }
 }

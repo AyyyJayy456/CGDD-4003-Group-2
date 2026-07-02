@@ -27,6 +27,8 @@ public class VersusPlayerControl : MonoBehaviour
             {
                 Currentangle -= input * speedy * Time.deltaTime;
 
+                Currentangle = Mathf.Clamp(Currentangle, 10f, 170f);
+
                 float radius = 5f;
                 float x = Centerpoint.position.x + Mathf.Cos(Currentangle * Mathf.Deg2Rad) * radius;
                 float y = Centerpoint.position.y + Mathf.Sin(Currentangle * Mathf.Deg2Rad) * radius;
@@ -55,6 +57,8 @@ public class VersusPlayerControl : MonoBehaviour
             if (input != 0)
             {
                 Currentangle -= input * speedy * Time.deltaTime;
+
+                Currentangle = Mathf.Clamp(Currentangle, 190f, 350f);
 
                 float radius = 5f;
                 float x = Centerpoint.position.x + Mathf.Cos(Currentangle * Mathf.Deg2Rad) * radius;

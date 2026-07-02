@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class CoopMovement : MonoBehaviour
@@ -6,7 +7,7 @@ public class CoopMovement : MonoBehaviour
     public float initialSpeed = 5f;
     private Rigidbody2D rb;
     public HitCounter hitCounter;
-
+    public int increase = 10;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,7 +25,6 @@ public class CoopMovement : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip hitSound;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (audioSource != null && hitSound != null)
@@ -32,9 +32,14 @@ public class CoopMovement : MonoBehaviour
             audioSource.PlayOneShot(hitSound);
         }
     }
-
     void Update()
     {
+        int hits = hitCounter.getHits();
+        if (hits == increase)
+        {
+            rb.linearVelocity *= 1.2f;
+            increase += 10;
+        }
         if (Vector3.Distance(transform.position, Vector3.zero) > maxRadius)
         {
             GameData.finalScore = hitCounter.getHits();

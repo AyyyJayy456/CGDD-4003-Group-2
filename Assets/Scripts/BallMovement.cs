@@ -6,6 +6,7 @@ public class BallMovement : MonoBehaviour
     public float initialSpeed = 5f;
     private Rigidbody2D rb;
     public HitCounter hitCounter;
+    public int increase = 10;
 
     void Start()
     {
@@ -35,6 +36,12 @@ public class BallMovement : MonoBehaviour
 
     void Update()
     {
+        int hits = hitCounter.getHits();
+        if (hits == increase)
+        {
+            rb.linearVelocity *= 1.2f;
+            increase += 10;
+        }
         if (Vector3.Distance(transform.position, Vector3.zero) > maxRadius)
         {
             GameData.finalScore = hitCounter.getHits();
