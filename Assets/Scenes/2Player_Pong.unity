@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 668735286}
   - component: {fileID: 668735290}
   - component: {fileID: 668735291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -1341,7 +1341,7 @@ GameObject:
   - component: {fileID: 1557642441}
   - component: {fileID: 1557642439}
   - component: {fileID: 1557642443}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player1Paddle
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -1393,7 +1393,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.075
 --- !u!212 &1557642441
 SpriteRenderer:
   serializedVersion: 2
@@ -1679,7 +1679,7 @@ GameObject:
   - component: {fileID: 1732659112}
   - component: {fileID: 1732659110}
   - component: {fileID: 1732659114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player2Paddle
   m_TagString: Player2
   m_Icon: {fileID: 0}
@@ -1731,7 +1731,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.075
 --- !u!212 &1732659112
 SpriteRenderer:
   serializedVersion: 2
@@ -1820,7 +1820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VersusPlayerControl
   Centerpoint: {fileID: 214886978}
   speedy: 150
-  Currentangle: -90
+  Currentangle: 270
 --- !u!1 &1858987772
 GameObject:
   m_ObjectHideFlags: 0

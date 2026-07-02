@@ -640,6 +640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CoopMovement
   initialSpeed: 5
   hitCounter: {fileID: 1661268487}
+  increase: 10
   maxRadius: 7
   audioSource: {fileID: 668735291}
   hitSound: {fileID: 8300000, guid: bc62a492b4262e74da99d69d276f72d2, type: 3}
