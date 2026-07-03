@@ -7,9 +7,18 @@ public class BallVersus : MonoBehaviour
     private Rigidbody2D rb;
     public VersusCounter versusCounter;
 
+    [Header("Afterimage Settings")]
+    public GameObject afterimagePrefab;
+    public float timeBetweenGhosts = 0.05f;  
+    public float ghostActiveTime = 0.4f;    
+    public float ghostFadeSpeed = 2.5f;      
+    private float ghostDelayTimer;
+    private SpriteRenderer ballSpriteRenderer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ballSpriteRenderer = GetComponent<SpriteRenderer>();
         LaunchBall();
     }
 
@@ -23,6 +32,17 @@ public class BallVersus : MonoBehaviour
 
     void Update()
     {
+        // Handle Afterimage Spawning
+        if (ghostDelayTimer <= 0)
+        {
+            SpawnAfterimage();
+            ghostDelayTimer = timeBetweenGhosts;
+        }
+        else
+        {
+            ghostDelayTimer -= Time.deltaTime;
+        }
+
         int player1 = versusCounter.getPlay1();
         int player2 = versusCounter.getPlay2();
         GameData.player1 = player1;
@@ -30,6 +50,18 @@ public class BallVersus : MonoBehaviour
         if (player1 == 11 || player2 == 11) 
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Victory_Screen");
+        }
+    }
+
+    void SpawnAfterimage()
+    {
+        if (afterimagePrefab != null && ballSpriteRenderer != null)
+        {
+            GameObject ghost = Instantiate(afterimagePrefab);
+            AfterimageEffect ghostScript = ghost.GetComponent<AfterimageEffect>();
+
+            // Pass the ball's current data over to the ghost
+            ghostScript.Init(ballSpriteRenderer.sprite, transform, ghostActiveTime, ghostFadeSpeed);
         }
     }
 
