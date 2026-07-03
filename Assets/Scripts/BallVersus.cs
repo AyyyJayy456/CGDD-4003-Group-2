@@ -52,5 +52,7 @@ public class BallVersus : MonoBehaviour
             versusCounter.Score2();
             LaunchBall();
         }
+
+        
     }
 }
