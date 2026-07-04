@@ -503,6 +503,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BallMovement
   initialSpeed: 5
   hitCounter: {fileID: 1661268487}
+  increase: 10
+  afterimagePrefab: {fileID: 7168528853515271763, guid: 4843d6aabe6ea8e4f93a5f3b6e9ca406, type: 3}
+  timeBetweenGhosts: 0.05
+  ghostActiveTime: 0.4
+  ghostFadeSpeed: 2.5
   maxRadius: 7
   audioSource: {fileID: 668735290}
   hitSound: {fileID: 8300000, guid: bc62a492b4262e74da99d69d276f72d2, type: 3}

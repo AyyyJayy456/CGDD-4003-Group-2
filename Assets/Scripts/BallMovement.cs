@@ -8,9 +8,18 @@ public class BallMovement : MonoBehaviour
     public HitCounter hitCounter;
     public int increase = 10;
 
+    [Header("Afterimage Settings")]
+    public GameObject afterimagePrefab;
+    public float timeBetweenGhosts = 0.05f;
+    public float ghostActiveTime = 0.4f;
+    public float ghostFadeSpeed = 2.5f;
+    private float ghostDelayTimer;
+    private SpriteRenderer ballSpriteRenderer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ballSpriteRenderer = GetComponent<SpriteRenderer>();
         LaunchBall();
         hitCounter.ResetCounter();
     }
@@ -22,6 +31,18 @@ public class BallMovement : MonoBehaviour
         rb.linearVelocity = randomDirection * initialSpeed;
     }
     public float maxRadius = 6f;
+
+    void SpawnAfterimage()
+    {
+        if (afterimagePrefab != null && ballSpriteRenderer != null)
+        {
+            GameObject ghost = Instantiate(afterimagePrefab);
+            AfterimageEffect ghostScript = ghost.GetComponent<AfterimageEffect>();
+
+            // Pass the ball's current data over to the ghost
+            ghostScript.Init(ballSpriteRenderer.sprite, transform, ghostActiveTime, ghostFadeSpeed);
+        }
+    }
 
     public AudioSource audioSource;
     public AudioClip hitSound;
@@ -36,6 +57,17 @@ public class BallMovement : MonoBehaviour
 
     void Update()
     {
+        // Handle Afterimage Spawning
+        if (ghostDelayTimer <= 0)
+        {
+            SpawnAfterimage();
+            ghostDelayTimer = timeBetweenGhosts;
+        }
+        else
+        {
+            ghostDelayTimer -= Time.deltaTime;
+        }
+
         int hits = hitCounter.getHits();
         if (hits == increase)
         {
