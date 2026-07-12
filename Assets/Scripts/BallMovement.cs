@@ -26,9 +26,8 @@ public class BallMovement : MonoBehaviour
 
     void LaunchBall()
     {
-        transform.position = Vector3.zero; 
-        Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), -1f).normalized;
-        rb.linearVelocity = randomDirection * initialSpeed;
+        transform.position = Vector3.zero;
+        rb.linearVelocity = Random.insideUnitCircle.normalized * initialSpeed;
     }
     public float maxRadius = 6f;
 
@@ -39,7 +38,6 @@ public class BallMovement : MonoBehaviour
             GameObject ghost = Instantiate(afterimagePrefab);
             AfterimageEffect ghostScript = ghost.GetComponent<AfterimageEffect>();
 
-            // Pass the ball's current data over to the ghost
             ghostScript.Init(ballSpriteRenderer.sprite, transform, ghostActiveTime, ghostFadeSpeed);
         }
     }
@@ -57,7 +55,6 @@ public class BallMovement : MonoBehaviour
 
     void Update()
     {
-        // Handle Afterimage Spawning
         if (ghostDelayTimer <= 0)
         {
             SpawnAfterimage();

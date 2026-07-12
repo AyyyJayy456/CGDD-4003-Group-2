@@ -39,7 +39,6 @@ public class CoopMovement : MonoBehaviour
             GameObject ghost = Instantiate(afterimagePrefab);
             AfterimageEffect ghostScript = ghost.GetComponent<AfterimageEffect>();
 
-            // Pass the ball's current data over to the ghost
             ghostScript.Init(ballSpriteRenderer.sprite, transform, ghostActiveTime, ghostFadeSpeed);
         }
     }
@@ -55,7 +54,6 @@ public class CoopMovement : MonoBehaviour
     }
     void Update()
     {
-        // Handle Afterimage Spawning
         if (ghostDelayTimer <= 0)
         {
             SpawnAfterimage();

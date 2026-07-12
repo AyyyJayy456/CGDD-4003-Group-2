@@ -6,6 +6,7 @@ public class VersusCounter : MonoBehaviour
 
     public int play1 = 0;
     public int play2 = 0;
+    int hitting = 0;
     void Start()
     {
         UpdateText();
@@ -34,5 +35,17 @@ public class VersusCounter : MonoBehaviour
     public int getPlay2()
     {
         return play2;
+    }
+    public void AddHit()
+    {
+        hitting++;
+    }
+    public void ResetCounter()
+    {
+        hitting = 0;
+    }
+    public int getHits() 
+    {
+        return hitting;
     }
 }

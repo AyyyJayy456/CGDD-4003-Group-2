@@ -6,6 +6,7 @@ public class VersusPlayerControl : MonoBehaviour
     public Transform Centerpoint;
     public float speedy = 150f;
     public float Currentangle = 90f;
+    public VersusCounter versusCounter;
     void Update()
     {
         float input = 0f;
@@ -70,6 +71,13 @@ public class VersusPlayerControl : MonoBehaviour
                 float targetRotation = Mathf.Atan2(directionToCenter.y, directionToCenter.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0, 0, targetRotation + 90f);
             }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            versusCounter.AddHit();
         }
     }
 }

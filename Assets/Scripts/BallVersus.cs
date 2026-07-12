@@ -1,3 +1,4 @@
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,7 @@ public class BallVersus : MonoBehaviour
     public float initialSpeed = 5f;
     private Rigidbody2D rb;
     public VersusCounter versusCounter;
+    int increases = 10;
 
     [Header("Afterimage Settings")]
     public GameObject afterimagePrefab;
@@ -25,14 +27,12 @@ public class BallVersus : MonoBehaviour
     void LaunchBall()
     {
         transform.position = Vector3.zero;
-        Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), -1f).normalized;
-        rb.linearVelocity = randomDirection * initialSpeed;
+        rb.linearVelocity = Random.insideUnitCircle.normalized * initialSpeed;
     }
     public float maxRadius = 6f;
 
     void Update()
     {
-        // Handle Afterimage Spawning
         if (ghostDelayTimer <= 0)
         {
             SpawnAfterimage();
@@ -41,6 +41,13 @@ public class BallVersus : MonoBehaviour
         else
         {
             ghostDelayTimer -= Time.deltaTime;
+        }
+
+        int hittings = versusCounter.getHits();
+        if (hittings == increases)
+        {
+            rb.linearVelocity *= 1.2f;
+            increases += 10;
         }
 
         int player1 = versusCounter.getPlay1();
@@ -60,13 +67,13 @@ public class BallVersus : MonoBehaviour
             GameObject ghost = Instantiate(afterimagePrefab);
             AfterimageEffect ghostScript = ghost.GetComponent<AfterimageEffect>();
 
-            // Pass the ball's current data over to the ghost
             ghostScript.Init(ballSpriteRenderer.sprite, transform, ghostActiveTime, ghostFadeSpeed);
         }
     }
 
     public AudioSource audioSource;
     public AudioClip hitSound;
+    public AudioClip scoreSound;
    
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -77,11 +84,15 @@ public class BallVersus : MonoBehaviour
         if (collision.gameObject.CompareTag("Score1"))
         {
             versusCounter.Score1();
+            audioSource.PlayOneShot(scoreSound);
+            versusCounter.ResetCounter();
             LaunchBall();
         }
         if (collision.gameObject.CompareTag("Score2")) 
         {
             versusCounter.Score2();
+            audioSource.PlayOneShot(scoreSound);
+            versusCounter.ResetCounter();
             LaunchBall();
         }
 
