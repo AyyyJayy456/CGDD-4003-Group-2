@@ -7,7 +7,7 @@ public class CoopMovement : MonoBehaviour
     public float initialSpeed = 5f;
     private Rigidbody2D rb;
     public HitCounter hitCounter;
-    public int increase = 10;
+    public int increase = 15;
 
     [Header("Afterimage Settings")]
     public GameObject afterimagePrefab;
@@ -67,8 +67,8 @@ public class CoopMovement : MonoBehaviour
         int hits = hitCounter.getHits();
         if (hits == increase)
         {
-            rb.linearVelocity *= 1.2f;
-            increase += 10;
+            rb.linearVelocity *= 1.4f;
+            increase += 15;
         }
         if (Vector3.Distance(transform.position, Vector3.zero) > maxRadius)
         {

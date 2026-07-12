@@ -8,6 +8,9 @@ public class CircularPaddle : MonoBehaviour
     public float currentAngle = 90f;
     public HitCounter hitCounter;
 
+    public float curveChance = 0.5f;
+    public float maxCurveAngle = 25f;
+
     void Update()
     {
         float input = 0f;

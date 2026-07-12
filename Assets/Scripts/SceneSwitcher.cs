@@ -4,6 +4,18 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public void singleInstruction() 
+    {
+        SceneManager.LoadScene("SinglePlayerInstruction");
+    }
+    public void versusInstruction() 
+    {
+        SceneManager.LoadScene("VersusInstruction");
+    }
+    public void coopInstruction() 
+    {
+        SceneManager.LoadScene("CoOpInstruction");
+    }
     public void StartGame()
     {
         SceneManager.LoadScene("Circular_Pong");

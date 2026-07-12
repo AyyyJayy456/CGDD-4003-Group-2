@@ -503,7 +503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BallMovement
   initialSpeed: 5
   hitCounter: {fileID: 1661268487}
-  increase: 10
+  increase: 15
   afterimagePrefab: {fileID: 7168528853515271763, guid: 4843d6aabe6ea8e4f93a5f3b6e9ca406, type: 3}
   timeBetweenGhosts: 0.05
   ghostActiveTime: 0.4
