@@ -17,6 +17,11 @@ public class BallVersus : MonoBehaviour
     private float ghostDelayTimer;
     private SpriteRenderer ballSpriteRenderer;
 
+    [Header("Curve Settings")]
+    public float curveForce = 15f;
+    private bool isCurving = false;
+    private float currentCurveDir = 0f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,8 +33,33 @@ public class BallVersus : MonoBehaviour
     {
         transform.position = Vector3.zero;
         rb.linearVelocity = Random.insideUnitCircle.normalized * initialSpeed;
+
+        ClearCurve();
     }
     public float maxRadius = 6f;
+
+    public void ApplyCurve(float direction)
+    {
+        isCurving = true;
+        currentCurveDir = direction;
+    }
+
+    void FixedUpdate()
+    {
+        if (isCurving)
+        {
+            // Calculate a vector perpendicular to the ball's current velocity
+            Vector2 perpendicularDir = new Vector2(-rb.linearVelocity.y, rb.linearVelocity.x).normalized;
+
+            // Apply force to bend the trajectory
+            rb.AddForce(perpendicularDir * (curveForce * currentCurveDir));
+        }
+    }
+
+    public void ClearCurve()
+    {
+        isCurving = false;
+    }
 
     void Update()
     {

@@ -8,6 +8,8 @@ public class BallMovement : MonoBehaviour
     public HitCounter hitCounter;
     public int increase = 15;
 
+    public float maxRadius = 6f;
+
     [Header("Afterimage Settings")]
     public GameObject afterimagePrefab;
     public float timeBetweenGhosts = 0.05f;
@@ -15,6 +17,8 @@ public class BallMovement : MonoBehaviour
     public float ghostFadeSpeed = 2.5f;
     private float ghostDelayTimer;
     private SpriteRenderer ballSpriteRenderer;
+
+
 
     void Start()
     {
@@ -29,7 +33,8 @@ public class BallMovement : MonoBehaviour
         transform.position = Vector3.zero;
         rb.linearVelocity = Random.insideUnitCircle.normalized * initialSpeed;
     }
-    public float maxRadius = 6f;
+   
+
 
     void SpawnAfterimage()
     {
@@ -44,6 +49,7 @@ public class BallMovement : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip hitSound;
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

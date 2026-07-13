@@ -1695,7 +1695,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.090459146, g: 0.87169814, b: 0.09276004, a: 1}
+  m_Color: {r: 0.87058824, g: 0.15741992, b: 0.09019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1735,6 +1735,7 @@ MonoBehaviour:
   speedy: 150
   Currentangle: 90
   versusCounter: {fileID: 1661268487}
+  isCurveArmed: 0
 --- !u!1 &1612380802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,7 +2035,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9169811, g: 0.060555227, b: 0.060555227, a: 1}
+  m_Color: {r: 0.0588235, g: 0.50698185, b: 0.91764706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2074,6 +2075,7 @@ MonoBehaviour:
   speedy: 150
   Currentangle: 270
   versusCounter: {fileID: 1661268487}
+  isCurveArmed: 0
 --- !u!1 &1744521323
 GameObject:
   m_ObjectHideFlags: 0

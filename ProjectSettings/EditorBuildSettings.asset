@@ -29,6 +29,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Results_Scene.unity
     guid: 9a17213e47b820a44bbece8f88c76e04
+  - enabled: 1
+    path: Assets/Scenes/CoOpInstruction.unity
+    guid: a016e4f7ed8e7f64ca500b07797a8953
+  - enabled: 1
+    path: Assets/Scenes/SinglePlayerInstruction.unity
+    guid: 3dcde1529eafb664fad130a1f3b5cb68
+  - enabled: 1
+    path: Assets/Scenes/VersusInstruction.unity
+    guid: 08bc4b95712d3b84993257d0f95c7bfc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -7,6 +7,28 @@ public class VersusPlayerControl : MonoBehaviour
     public float speedy = 150f;
     public float Currentangle = 90f;
     public VersusCounter versusCounter;
+
+    public bool isCurveArmed = false;
+
+    [Header("Flash Visuals")]
+    public Color flashColor = Color.yellow;
+    public float flashSpeed = 15f; // Higher number = faster flashing
+
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+
+    void Start()
+    {
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
+    }
+
     void Update()
     {
         float input = 0f;
@@ -21,6 +43,11 @@ public class VersusPlayerControl : MonoBehaviour
                 else if (Keyboard.current.rightArrowKey.isPressed)
                 {
                     input = 1.5f;
+                }
+                // Toggle Curve Mode with 'P'
+                if (Keyboard.current.pKey.wasPressedThisFrame)
+                {
+                    isCurveArmed = !isCurveArmed;
                 }
             }
 
@@ -53,6 +80,11 @@ public class VersusPlayerControl : MonoBehaviour
                 {
                     input = 1.5f;
                 }
+                // Toggle Curve Mode with 'T'
+                if (Keyboard.current.tKey.wasPressedThisFrame)
+                {
+                    isCurveArmed = !isCurveArmed;
+                }
             }
 
             if (input != 0)
@@ -72,12 +104,52 @@ public class VersusPlayerControl : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, targetRotation + 90f);
             }
         }
+
+            //Flash Logic
+            if (spriteRenderer != null)
+            {
+                if (isCurveArmed)
+                {
+
+                    float lerpValue = Mathf.PingPong(Time.time * flashSpeed, 1f);
+
+
+                    spriteRenderer.color = Color.Lerp(originalColor, flashColor, lerpValue);
+                }
+                else
+                {
+
+                    spriteRenderer.color = originalColor;
+                }
+            }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
             versusCounter.AddHit();
+
+            BallVersus ball = collision.gameObject.GetComponent<BallVersus>();
+            if (ball != null)
+            {
+
+                ball.ClearCurve();
+
+
+                if (isCurveArmed)
+                {
+                    float curveDirection = Random.value > 0.5f ? 1f : -1f;
+                    ball.ApplyCurve(curveDirection);
+
+
+                    isCurveArmed = false;
+
+                    if (spriteRenderer != null)
+                    {
+                        spriteRenderer.color = originalColor;
+                    }
+                }
+            }
         }
     }
 }

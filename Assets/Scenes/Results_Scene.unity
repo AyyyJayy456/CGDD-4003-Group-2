@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResultsUI
   hitCounter: {fileID: 0}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1102239103}
 --- !u!1 &1102239101
 GameObject:
   m_ObjectHideFlags: 0
