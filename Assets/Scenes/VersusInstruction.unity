@@ -472,8 +472,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -103.81, y: 54.387}
-  m_SizeDelta: {x: 582.25, y: 282.62}
+  m_AnchoredPosition: {x: 87, y: 157}
+  m_SizeDelta: {x: 709.05, y: 282.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1199907722
 MonoBehaviour:
@@ -495,9 +495,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Versus Instructions:\n-Player 1: LEFT and RIGHT arrowkeys\n-Player 2:
-    A and D on the keyboard\n-First Player to 11 score wins!\n-Player 1 on top half
-    and player 2 on bottom\n-Ball increases speed every 10 hits\t\n\n\t\t"
+  m_text: "Versus Instructions:\n-Player 1: LEFT and RIGHT arrowkeys \"P\" for CURVE
+    SHOT\u2122\n-Player 2: A and D on the keyboard \"T\" for CURVE SHOT\u2122\n-First
+    Player to 11 score wins!\n-Player 1 on top half and player 2 on bottom\n-Ball
+    increases speed every 10 hits\t\n-Take advantage of CURVE SHOT\u2122  But be
+    warned as you can risk an own goal\n\n\t\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
