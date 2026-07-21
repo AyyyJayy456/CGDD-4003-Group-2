@@ -44,8 +44,8 @@ public class VersusPlayerControl : MonoBehaviour
                 {
                     input = 1.5f;
                 }
-                // Toggle Curve Mode with 'P'
-                if (Keyboard.current.pKey.wasPressedThisFrame)
+                // Toggle Curve Mode with 'downarrow'
+                if (Keyboard.current.downArrowKey.wasPressedThisFrame)
                 {
                     isCurveArmed = !isCurveArmed;
                 }
@@ -80,8 +80,8 @@ public class VersusPlayerControl : MonoBehaviour
                 {
                     input = 1.5f;
                 }
-                // Toggle Curve Mode with 'T'
-                if (Keyboard.current.tKey.wasPressedThisFrame)
+                // Toggle Curve Mode with 'W'
+                if (Keyboard.current.wKey.wasPressedThisFrame)
                 {
                     isCurveArmed = !isCurveArmed;
                 }

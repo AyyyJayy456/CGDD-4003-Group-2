@@ -495,11 +495,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Versus Instructions:\n-Player 1: LEFT and RIGHT arrowkeys \"P\" for a
-    CURVE SHOT\u2122\n-Player 2: A and D on the keyboard \"T\" for a CURVE SHOT\u2122\n-First
-    Player to 11 score wins!\n-Player 1 on top half and player 2 on bottom\n-Ball
-    increases speed every 10 hits\t\n-Take advantage of CURVE SHOT\u2122  But be
-    warned as you can risk an own goal\n\n\t\t"
+  m_text: "Versus Instructions:\n-Player 1: LEFT and RIGHT arrowkeys \"Down Arrow
+    Key\" for a CURVE SHOT\u2122\n-Player 2: A and D on the keyboard \"W key\" for
+    a CURVE SHOT\u2122\n-First Player to 11 score wins!\n-Player 1 on top half and
+    player 2 on bottom\n-Ball increases speed every 10 hits\t\n-Take advantage of
+    CURVE SHOT\u2122  But be warned as you can risk an own goal\n\n\t\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: f2dcf029949142e28b974630369c8b4e, type: 2}
@@ -796,7 +796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -152}
+  m_AnchoredPosition: {x: 0, y: -215}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2147444967
